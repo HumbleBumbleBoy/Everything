@@ -1,8 +1,20 @@
 let isAnimating = false; // Prevent multiple simultaneous animations
 const animationTime = 700; // Miliseconds
 let fileName = "";
+let task = "";
+let clickSfx = new Audio("/assets/sfx/clickSfx.mp3");
+clickSfx.volume = 0.3;
 
-async function randomize() {
+document.querySelectorAll(".clickable").forEach(element => {
+    element.addEventListener("click", () => {
+        clickSfx.pause();
+        clickSfx.currentTime = 0;
+
+        clickSfx.play().catch(err => console.error("Audio play failed:", err));
+    });
+});
+
+async function generate() {
     if (isAnimating) return; // Ignore clicks while animating
 
     isAnimating = true; // Mark animation as active
@@ -32,6 +44,7 @@ async function randomize() {
 };
 
 function animateHusk() {
+    task = "generate";
     const husk = document.getElementById("insert");
     husk.style.opacity = 0; // Start invisible
     setTimeout(() => {
@@ -40,6 +53,7 @@ function animateHusk() {
 };
 
 function websiteTabSwitch() {
+    task = "generate";
     resetTabStyle(); // Reset styles for all tabs
     const websiteTabButton = document.getElementById("WebsiteIdeasTab");
     websiteTabButton.classList.add("active");
@@ -47,6 +61,7 @@ function websiteTabSwitch() {
 };
 
 function jokesTabSwitch() {
+    task = "generate";
     resetTabStyle(); // Reset styles for all tabs
     const jokesTabButton = document.getElementById("JokesTab");
     jokesTabButton.classList.add("active");
@@ -54,6 +69,7 @@ function jokesTabSwitch() {
 };
 
 function quotesTabSwitch() {
+    task = "generate";
     resetTabStyle(); // Reset styles for all tabs
     const quotesTabButton = document.getElementById("QuotesTab");
     quotesTabButton.classList.add("active");
@@ -72,4 +88,23 @@ function resetTabStyle() {
     tabs.forEach(tab => {
         tab.classList.remove("active"); // Remove the 'active' class
     });
+};
+
+function play() {
+    return
+}
+
+function execute() {
+    const husk = document.getElementById("insert");
+
+    // Execute the corresponding tasks
+    if (!fileName) {
+        // If no fileName is set, notify the user
+        husk.innerText = "Choose an option first";
+        husk.style.opacity = 1; // Ensure it's visible
+        return;
+    }
+
+    if (task === "generate") { generate(); } 
+    else if (task === "play") { play(); }
 }

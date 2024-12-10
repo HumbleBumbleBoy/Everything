@@ -3,21 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Generate</title>
-        <link rel="icon" type="image/x-icon" href="/assets/magicHat.png">
+        <title>Everything</title>
+        <link rel="icon" type="image/x-icon" href="/assets/img/magicHat.png">
         <link rel="stylesheet" href="/code/style.css">
         <link type="text/css" rel="stylesheet" href="/code/materialize/css/materialize.min.css" media="screen,projection">
     </head>
     
     <body>
         <div class="row">
-            <div class="col s3" onclick="websiteTabSwitch()" id="WebsiteIdeasTab">Website ideas</div>
-            <div class="col s3" onclick="jokesTabSwitch()" id="JokesTab">Jokes</div>
-            <div class="col s3" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</div>
-            <div class="col s3" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</div>
+            <div class="col s3 clickable" onclick="websiteTabSwitch()" id="WebsiteIdeasTab">Website ideas</div>
+            <div class="col s3 clickable" onclick="jokesTabSwitch()" id="JokesTab">Jokes</div>
+            <div class="col s3 clickable" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</div>
+            <div class="col s3 clickable" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</div>
         </div>
         <div id="wrapper">
-            <button onclick="animateHusk(), randomize()" id="btn" class="waves-effect waves-light btn-large" href="#">Generate</button>
+            <button onclick="execute()" id="btn" class="waves-effect waves-light btn-large clickable" href="#">Generate</button>
         </div>
         <p id="insert"></p>
     
