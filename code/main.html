@@ -11,13 +11,18 @@
     
     <body>
         <div class="row">
-            <div class="col s3 clickable" onclick="websiteTabSwitch()" id="WebsiteIdeasTab">Website ideas</div>
-            <div class="col s3 clickable" onclick="jokesTabSwitch()" id="JokesTab">Jokes</div>
-            <div class="col s3 clickable" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</div>
-            <div class="col s3 clickable" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</div>
+            <div class="col s3 clickable dropdown-trigger" data-target='generateOptions' onclick="everythingButtonGenerate()">Generate</div>
         </div>
+
+        <ul id='generateOptions' class='dropdown-content'> <!-- this is a replacement for-->
+            <li><a class="clickable choiceButton" onclick="websiteTabSwitch()" id="WebsiteIdeasTab">Website ideas</a></li>
+            <li><a class="clickable choiceButton" onclick="jokesTabSwitch()" id="JokesTab">Jokes</a></li>
+            <li><a class="clickable choiceButton" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</a></li>
+            <li><a class="clickable choiceButton" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</a></li>
+        </ul>
+
         <div id="wrapper">
-            <button onclick="execute()" id="btn" class="waves-effect waves-light btn-large clickable" href="#">Generate</button>
+            <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable" href="#">. . .</button>
         </div>
         <p id="insert"></p>
     

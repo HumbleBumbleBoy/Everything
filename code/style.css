@@ -15,10 +15,10 @@ body {
     margin-top: 15%;
   }
 
-#btn {
+#everythingButton {
     margin: 0 auto;
-    width: 200px;
-    height: 50px;
+    width: 250px;
+    height: 62px;
     background: rgb(25, 25, 25);
     border-color: rgb(95, 95, 95);
 }
@@ -38,6 +38,18 @@ body {
     opacity: 0; /* Default to hidden */
 }
 
+li {
+    background-color: rgb(46, 42, 42);
+}
+
+.choiceButton {
+    color: whitesmoke;
+}
+
+.choiceButton:hover {
+    background-color: rgb(61, 55, 55);
+}
+
 .s3 {
     background-color: rgb(35, 35, 35);
     text-align: center;
@@ -53,4 +65,8 @@ body {
     background-color: rgb(23, 23, 23); /* Highlight active tab */
     color: rgb(191, 191, 191);
     cursor: default;
+}
+
+#generateOptions {
+    width: 1000px;
 }
