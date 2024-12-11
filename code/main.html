@@ -11,7 +11,10 @@
     
     <body>
         <div class="row">
-            <div class="col s3 clickable dropdown-trigger" data-target='generateOptions' onclick="everythingButtonGenerate()">Generate</div>
+            <div id="generateDropdown" class="col s3 clickable dropdown-trigger" data-target='generateOptions' onclick="everythingButtonGenerate()">Generate</div>
+            <div id="playDropdown" class="col s3 clickable dropdown-trigger" data-target='playOptions' onclick="everythingButtonPlay()">Play</div>
+            <div id="PLACEHOLDER1Dropdown" class="col s3 clickable dropdown-trigger" data-target='PLACEHOLDER1Options' onclick="everythingButtonPLACEHOLDER1()">PLACEHOLDER1</div>
+            <div id="PLACEHOLDER2Dropdown" class="col s3 clickable dropdown-trigger" data-target='PLACEHOLDER2Options' onclick="everythingButtonPLACEHOLDER2()">PLACEHOLDER2</div>
         </div>
 
         <ul id='generateOptions' class='dropdown-content'>
@@ -19,6 +22,11 @@
             <li><a class="clickable choiceButton" onclick="jokesTabSwitch()" id="JokesTab">Jokes</a></li>
             <li><a class="clickable choiceButton" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</a></li>
             <li><a class="clickable choiceButton" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</a></li>
+        </ul>
+
+        <ul id='playOptions' class='dropdown-content'>
+            <li><a class="clickable choiceButton" onclick="drawTabSwitch()" id="DrawTab">Draw</a></li>
+            <li><a class="clickable choiceButton" onclick="clickerTabSwitch()" id="ClickerTab">Click</a></li>
         </ul>
 
         <div id="wrapper">
