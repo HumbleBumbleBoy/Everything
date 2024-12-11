@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', function() { // property and execu
 document.addEventListener('click', function(event) {
     // Check if the clicked element is not inside any dropdown or button
     const clickedInsideDropdown = event.target.closest('.dropdown-trigger') || event.target.closest('.choiceButton');
+    const clickedInsideButton = event.target === everythingButton;
 
     // If the clicked element is outside the dropdowns or the button, reset active state
-    if (!clickedInsideDropdown) {
-        everythingButton.innerText = ". . .";
+    if (!clickedInsideDropdown && !clickedInsideButton) {
         resetActiveAll();
     }
 }, true);
