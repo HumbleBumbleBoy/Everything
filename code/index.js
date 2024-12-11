@@ -1,5 +1,5 @@
 let isAnimating = false; // Prevent multiple simultaneous animations
-const animationTime = 700; // Miliseconds
+const animationTime = 500; // Miliseconds
 let fileName = ""; // path to database
 let task = ""; // what will the button do and display
 let clickSfx = new Audio("/assets/sfx/clickSfx.mp3");
@@ -9,33 +9,29 @@ const husk = document.getElementById("insert");
 const generateDropdown = document.getElementById("generateDropdown");
 const playDropdown = document.getElementById("playDropdown");
 
-document.querySelectorAll(".clickable").forEach(element => { // everything that has "clickable" as class will make a noise
-    element.addEventListener("click", () => {
+document.addEventListener("click", function(event) {
+    // Check if the clicked element has the 'clickable' class
+    if (!event.target.classList.contains("active") && event.target.classList.length > 0) {
         clickSfx.pause();
         clickSfx.currentTime = 0;
-
         clickSfx.play().catch(err => console.error("Audio play failed:", err));
-    });
-});
+    }
 
-document.addEventListener('DOMContentLoaded', function() { // property and execute of dropdown menus
+    resetActiveAll();
+}, true);
+
+document.addEventListener('DOMContentLoaded', function() { 
+    // Initialize all dropdown triggers with custom options
     var elems = document.querySelectorAll('.dropdown-trigger');
     var instances = M.Dropdown.init(elems, {
         alignment: 'left',
-        closeOnClick: true, // Close the dropdown when an option is selected
-        coverTrigger: false,
+        closeOnClick: true, // Prevent dropdown from closing when clicking on a tab inside the dropdown
+        coverTrigger: false, // Make the dropdown appear below the trigger
     });
 });
 
 document.addEventListener('click', function(event) {
-    // Check if the clicked element is not inside any dropdown or button
-    const clickedInsideDropdown = event.target.closest('.dropdown-trigger') || event.target.closest('.choiceButton');
-    const clickedInsideButton = event.target === everythingButton;
-
-    // If the clicked element is outside the dropdowns or the button, reset active state
-    if (!clickedInsideDropdown && !clickedInsideButton) {
-        resetActiveAll();
-    }
+    resetActiveAll();
 }, true);
 
 async function generate() {
@@ -70,7 +66,7 @@ function everythingButtonGenerate() {  // when "generate" tab is clicked
     husk.innerText = "";
     resetTabStyle();
     everythingButton.innerText = "Generate . .  .";
-    generateDropdown.classList.add("active")
+    generateDropdown.classList.add("active");
     task = "";
     isAnimating = false;
 }
