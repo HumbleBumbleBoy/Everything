@@ -3,7 +3,7 @@ const animationTime = 500; // Miliseconds
 let fileName = ""; // path to database
 let task = ""; // what will the button do and display
 let game = "";
-let clickSfx = new Audio("/assets/sfx/clickSfx.mp3");
+let clickSfx = new Audio("assets/sfx/clickSfx.mp3");
 clickSfx.volume = 0.3;
 const everythingButton = document.getElementById("everythingButton");
 const husk = document.getElementById("insert");
@@ -47,7 +47,7 @@ async function generate() {
         await new Promise(resolve => setTimeout(resolve, animationTime)); // Wait for fade-out
 
         // Fetch and update text
-        const response = await fetch(`/data/${fileName}.json`);
+        const response = await fetch(`data/${fileName}.json`);
         const responses = await response.json();
         let randomResponse = responses[Math.floor(Math.random() * responses.length)];
         husk.innerText = randomResponse;
