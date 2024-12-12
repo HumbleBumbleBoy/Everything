@@ -76,8 +76,8 @@ function everythingButtonGenerate() {  // when "generate" tab is clicked
 function websiteTabSwitch() {
     resetActiveAll()
     task = "generate";
-    fileName = "websiteIdeas";
-    everythingButton.innerText = "Generate a website idea";
+    fileName = "websiteideas";
+    everythingButton.innerText = "Generate a web idea";
 };
 
 function jokesTabSwitch() {
