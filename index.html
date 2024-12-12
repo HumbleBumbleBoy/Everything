@@ -7,6 +7,7 @@
         <link rel="icon" type="image/x-icon" href="assets/img/magicHat.png">
         <link rel="stylesheet" href="style.css">
         <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     
     <body>
@@ -15,6 +16,7 @@
             <div id="playDropdown" class="col s3 clickable dropdown-trigger" data-target='playOptions' onclick="everythingButtonPlay()">Play</div>
             <div id="PLACEHOLDER1Dropdown" class="col s3 clickable dropdown-trigger" data-target='PLACEHOLDER1Options' onclick="everythingButtonPLACEHOLDER1()">PLACEHOLDER1</div>
             <div id="PLACEHOLDER2Dropdown" class="col s3 clickable dropdown-trigger" data-target='PLACEHOLDER2Options' onclick="everythingButtonPLACEHOLDER2()">PLACEHOLDER2</div>
+
         </div>
 
         <ul id='generateOptions' class='dropdown-content'>
@@ -33,12 +35,22 @@
 
         <div id="wrapper">
             <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable" href="#">. . .</button>
+            <div id="options">
+                <a class="modal-trigger" href="#modal1"><i id="settingsButton" class="material-icons settingsButton">settings</i></a>
+
+                <div id="modal1" class="modal" style="border-radius: 10px; border: none;">
+                  <div class="modal-content darkify">
+                    <h4>Settings</h4>
+                    <p>volume</p>
+                    <input id="volumeSlider" type="range" min="0" max="100" value="30" step="5">
+                  </div>
+                  <div class="modal-footer darkify">
+                    <a href="#!" class="modal-close settingsConfirm">Okay</a>
+                  </div>
+                </div>
+            </div>
         </div>
         <p id="insert"></p>
-
-        <div id="options">
-            
-        </div>
     
         <script src="index.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

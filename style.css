@@ -68,7 +68,7 @@ li {
 .s3 {
     background-color: rgb(35, 35, 35);
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .s3:hover {
@@ -107,3 +107,78 @@ li {
     background-color: rgb(219, 51, 51);
     color: rgb(255, 255, 255);
 }
+
+#options {
+    margin-left: 300px;
+    z-index: 10;
+}
+
+.settingsButton {
+    background-color: rgb(35, 35, 35);
+    padding: 4px;
+    border-radius: 10px;
+    margin-right: 10px;
+    float: left;
+}
+
+.settingsButton:hover {
+    background-color: rgb(65, 65, 65);
+    cursor: pointer;
+}
+
+#volumeSlider {
+    float: left;
+    margin-top: 1vh;
+}
+
+.darkify {
+    background-color: rgb(24, 24, 24);
+}
+
+.settingsConfirm {
+    color: whitesmoke;
+    background-color: rgb(35, 35, 35);
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 6px;
+    width: 150px;
+    text-align: center;
+    float: right;
+}
+
+.settingsConfirm:hover {
+    background-color: rgb(49, 49, 49);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 400px;
+  }
+  
+  /* Removes default focus */
+  input[type="range"]:focus {
+    outline: none;
+  }
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #f3f3f3;
+    border-radius: 2rem;
+    height: 0.5rem;
+  }
+  
+  /* slider thumb */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #535353;
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 1rem;
+    height: 1rem;
+    width: 1rem;
+  }
+  
+  input[type="range"]:focus::-moz-range-thumb{
+    outline: 3px solid #535353;
+    outline-offset: 0.125rem;
+  }

@@ -4,12 +4,19 @@ let fileName = ""; // path to database
 let task = ""; // what will the button do and display
 let game = "";
 let clickSfx = new Audio("assets/sfx/clickSfx.mp3");
-clickSfx.volume = 0.3;
+let volumeSlider = document.getElementById("volumeSlider");
 const everythingButton = document.getElementById("everythingButton");
 const husk = document.getElementById("insert");
 const generateDropdown = document.getElementById("generateDropdown");
 const playDropdown = document.getElementById("playDropdown");
 const drawArea = document.getElementById("drawArea");
+
+function updateVolume() {
+    let volume = volumeSlider.value / 100; // Normalize to range 0-1
+    clickSfx.volume = volume;
+}
+
+volumeSlider.addEventListener("input", updateVolume);
 
 document.addEventListener("click", function(event) {
     // Check if the clicked element has the 'clickable' class
@@ -32,9 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-document.addEventListener('click', function(event) {
-    resetActiveAll();
-}, true);
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {
+        opacity: 0.3
+    });
+  });
 
 async function generate() {
     if (isAnimating) return; // Ignore clicks while animating
@@ -153,7 +163,6 @@ function draw(e) {
     context.stroke();
 }
 
-
 function clickerTabSwitch() {
     resetActiveAll()
     task = "play";
@@ -221,6 +230,8 @@ function clearContent() {
     context.clearRect(0, 0, drawArea.width, drawArea.height); // Clear the canvas
 }
 
+updateVolume();
+
 function play() {
     if (!drawingInitialized && game == "draw") {  // Check if drawing hasn't been initialized
         drawingInitialized = true;  // Set the flag to true to prevent re-initialization
@@ -236,7 +247,7 @@ function play() {
     }
 
     if (game == "click") {
-        husk.innerText = `Clicks: ${clicks}`;
+        husk.innerText = `Clicks: ${clicks} (more features will come)`;
         clicks += CPC;
     }
 }
