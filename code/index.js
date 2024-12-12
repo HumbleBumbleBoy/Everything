@@ -2,12 +2,14 @@ let isAnimating = false; // Prevent multiple simultaneous animations
 const animationTime = 500; // Miliseconds
 let fileName = ""; // path to database
 let task = ""; // what will the button do and display
+let game = "";
 let clickSfx = new Audio("/assets/sfx/clickSfx.mp3");
 clickSfx.volume = 0.3;
 const everythingButton = document.getElementById("everythingButton");
 const husk = document.getElementById("insert");
 const generateDropdown = document.getElementById("generateDropdown");
 const playDropdown = document.getElementById("playDropdown");
+const drawArea = document.getElementById("drawArea");
 
 document.addEventListener("click", function(event) {
     // Check if the clicked element has the 'clickable' class
@@ -109,11 +111,48 @@ function everythingButtonPlay() {  // when "Play" tab is clicked
     isAnimating = false;
 }
 
+let drawingInitialized = false;
+
 function drawTabSwitch() {
     resetActiveAll()
     task = "play";
-    everythingButton.innerText = "Change colour";
+    game = "draw";
+    drawingInitialized = false;
+    everythingButton.innerText = "Clear";
+    play();
 };
+
+drawArea.width  = window.innerWidth;    // todo dynamic display
+drawArea.height = window.innerHeight - 60;
+// Move these functions outside of the `play` function
+let paint = false;
+let colour = "white";
+
+function painting(e) {
+    paint = true;
+    const context = drawArea.getContext("2d");
+    context.beginPath(); // Begin a new path for drawing
+}
+
+function finish(e) {
+    paint = false; // Stop painting when the mouse is released
+}
+
+function draw(e) {
+    if (!paint) return; // Don't draw unless mouse is pressed
+    var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    
+    const context = drawArea.getContext("2d");
+    context.strokeStyle = colour; // Set the drawing color
+    context.lineWidth = 5;
+    context.lineCap = "round";
+    
+    context.lineTo(x, y); // Draw a line to the current mouse position
+    context.stroke();
+}
+
 
 function clickerTabSwitch() {
     resetActiveAll()
@@ -156,7 +195,13 @@ function resetTabStyle() {
     tabs.forEach(tab => {
         tab.classList.remove("active"); // Remove the 'active' class
     });
+    // spaghetti starts here, whenever you switch a tab it disables drawing, i don't feel like doing it in a better way
+    drawingInitialized = false;
+    drawArea.removeEventListener("mouseup", finish);
+    drawArea.removeEventListener("mousemove", draw);
+    drawArea.removeEventListener("mousedown", painting); 
 };
+
 
 function resetActiveAll() { // makes all dropdowns appear not clicked in
     generateDropdown.classList.remove("active"),
@@ -165,8 +210,25 @@ function resetActiveAll() { // makes all dropdowns appear not clicked in
     PLACEHOLDER2Dropdown.classList.remove("active")
 }
 
+// Define clearContent() outside the play function for global access
+function clearContent() {    
+    const context = drawArea.getContext("2d");
+    context.clearRect(0, 0, drawArea.width, drawArea.height); // Clear the canvas
+}
+
 function play() {
-    return
+    if (!drawingInitialized && game == "draw") {  // Check if drawing hasn't been initialized
+        drawingInitialized = true;  // Set the flag to true to prevent re-initialization
+
+        // Add event listeners
+        drawArea.addEventListener("mouseup", finish);
+        drawArea.addEventListener("mousemove", draw);
+        drawArea.addEventListener("mousedown", painting);
+    } else if (drawingInitialized && game == "draw") {
+        clearContent(); // Clear the canvas when reactivating
+        drawArea.width  = window.innerWidth;    // very scuffed dynamic resize
+        drawArea.height = window.innerHeight - 60;
+    }
 }
 
 function execute() {
