@@ -47,7 +47,7 @@ async function generate() {
         await new Promise(resolve => setTimeout(resolve, animationTime)); // Wait for fade-out
 
         // Fetch and update text
-        const response = await fetch(`/code/data/${fileName}.json`);
+        const response = await fetch(`/data/${fileName}.json`);
         const responses = await response.json();
         let randomResponse = responses[Math.floor(Math.random() * responses.length)];
         husk.innerText = randomResponse;
