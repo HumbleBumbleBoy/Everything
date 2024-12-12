@@ -157,9 +157,14 @@ function draw(e) {
 function clickerTabSwitch() {
     resetActiveAll()
     task = "play";
-    everythingButton.innerText = "Gather points!";
+    game = "click";
+    husk.style.opacity = 1;
+    everythingButton.innerText = "Gather clicks!";
 };
 
+let clicks = 1;
+let CPC = 1; // clicks per click
+let CPS = 0; // clicks per second
 
 function everythingButtonPLACEHOLDER1() {  // when "PLACEHOLDER1" tab is clicked
     husk.innerText = "";
@@ -228,6 +233,11 @@ function play() {
         clearContent(); // Clear the canvas when reactivating
         drawArea.width  = window.innerWidth;    // very scuffed dynamic resize
         drawArea.height = window.innerHeight - 60;
+    }
+
+    if (game == "click") {
+        husk.innerText = `Clicks: ${clicks}`;
+        clicks += CPC;
     }
 }
 
