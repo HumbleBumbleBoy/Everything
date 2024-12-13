@@ -113,6 +113,13 @@ function questionsTabSwitch() {
     everythingButton.innerText = "Generate a question";
 };
 
+function tipsTabSwitch() {
+    resetActiveAll()
+    task = "generate";
+    fileName = "tips";
+    everythingButton.innerText = "Generate a tip";
+}
+
 
 function everythingButtonPlay() {  // when "Play" tab is clicked
     husk.innerText = "";

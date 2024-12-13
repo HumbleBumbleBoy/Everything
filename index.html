@@ -24,6 +24,7 @@
             <li><a class="clickable choiceButton" onclick="jokesTabSwitch()" id="JokesTab">Jokes</a></li>
             <li><a class="clickable choiceButton" onclick="quotesTabSwitch()" id="QuotesTab">Quotes</a></li>
             <li><a class="clickable choiceButton" onclick="questionsTabSwitch()" id="QuestionsTab">Questions</a></li>
+            <li><a class="clickable choiceButton" onclick="tipsTabSwitch()" id="tipsTab">Tips</a></li>
         </ul>
 
         <ul id='playOptions' class='dropdown-content'>
@@ -45,13 +46,13 @@
                   <p>For now, enjoy :)</p>
                 </div>
                 <div class="modal-footer darkify">
-                  <a href="#!" class="modal-close settingsConfirm clickable" style="float: left; margin-left: 15px;">Sure!</a>
-                  <p style="color: grey; margin-top: 4vh;">Version 0.2.2.1</p>
+                  <a class="modal-close settingsConfirm clickable" style="float: left; margin-left: 15px;">Sure!</a>
+                  <p style="color: grey; margin-top: 4vh;">Version 0.2.2.3</p>
                 </div>
             </div>
 
             <div>
-                <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable" href="#">. . .</button>
+                <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable">. . .</button>
             </div>
             
             <div style="z-index: 2;">
@@ -64,7 +65,7 @@
                   <input id="volumeSlider" type="range" min="0" max="100" value="30" step="5">
                 </div>
                 <div class="modal-footer darkify">
-                  <a href="#!" class="modal-close settingsConfirm clickable">Okay</a>
+                  <a class="modal-close settingsConfirm clickable">Okay</a>
                 </div>
               </div>
         </div>
