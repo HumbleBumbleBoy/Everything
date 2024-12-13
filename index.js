@@ -10,6 +10,7 @@ const husk = document.getElementById("insert");
 const generateDropdown = document.getElementById("generateDropdown");
 const playDropdown = document.getElementById("playDropdown");
 const drawArea = document.getElementById("drawArea");
+const clickerStuff = document.getElementById("clickerStuff");
 
 function updateVolume() {
     let volume = volumeSlider.value / 100; // Normalize to range 0-1
@@ -81,6 +82,7 @@ function everythingButtonGenerate() {  // when "generate" tab is clicked
     generateDropdown.classList.add("active");
     task = "";
     isAnimating = false;
+    clickerStuff.style.display = "none";
 }
 
 function websiteTabSwitch() {
@@ -119,6 +121,7 @@ function everythingButtonPlay() {  // when "Play" tab is clicked
     playDropdown.classList.add("active")
     task = "";
     isAnimating = false;
+    clickerStuff.style.display = "none";
 }
 
 let drawingInitialized = false;
@@ -184,6 +187,7 @@ function everythingButtonPLACEHOLDER1() {  // when "PLACEHOLDER1" tab is clicked
     PLACEHOLDER1Dropdown.classList.add("active")
     task = "";
     isAnimating = false;
+    clickerStuff.style.display = "none";
 }
 
 function everythingButtonPLACEHOLDER2() {  // when "PLACEHOLDER2" tab is clicked
@@ -194,6 +198,7 @@ function everythingButtonPLACEHOLDER2() {  // when "PLACEHOLDER2" tab is clicked
     PLACEHOLDER2Dropdown.classList.add("active")
     task = "";
     isAnimating = false;
+    clickerStuff.style.display = "none";
 }
 
 function animateHusk() {
@@ -223,7 +228,7 @@ function resetActiveAll() { // makes all dropdowns appear not clicked in   |  af
     playDropdown.classList.remove("active"),
     PLACEHOLDER1Dropdown.classList.remove("active"),
     PLACEHOLDER2Dropdown.classList.remove("active"),
-    document.getElementById("clickerStuff").style.display = "none"; // spaghetti starting here, when switching tabs, clicker will disappear
+    // spaghetti starting here, when switching tabs, clicker will disappear
     updateVolume() ;  
 }
 
