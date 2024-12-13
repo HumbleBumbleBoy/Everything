@@ -34,23 +34,112 @@
         <canvas id="drawArea"></canvas>
 
         <div id="wrapper">
-            <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable" href="#">. . .</button>
-            <div id="options">
-                <a class="modal-trigger" href="#modal1"><i id="settingsButton" class="material-icons settingsButton">settings</i></a>
-
-                <div id="modal1" class="modal" style="border-radius: 10px; border: none;">
-                  <div class="modal-content darkify">
-                    <h4>Settings</h4>
-                    <p>volume</p>
-                    <input id="volumeSlider" type="range" min="0" max="100" value="30" step="5">
-                  </div>
-                  <div class="modal-footer darkify">
-                    <a href="#!" class="modal-close settingsConfirm">Okay</a>
-                  </div>
+            <div style="z-index: 2;">
+                <a class="modal-trigger" href="#helpView"><i id="helpButton" class="material-icons settingsButton clickable">help</i></a>
+            </div>
+            <div id="helpView" class="modal" style="border-radius: 10px; border: none;">
+                <div class="modal-content darkify">
+                  <h2>Hello Hello</h2>
+                  <p>This is a small project aimed to occupy your ADHD for 3 minutes.</p><br>
+                  <p>Everything is divided into sections so it's easy to navigate.<br> If you find any bugs, have ideas or want to submit a quote or a new "generate" category, make sure to message me.</p><br>
+                  <p>For now, enjoy :)</p>
+                </div>
+                <div class="modal-footer darkify">
+                  <a href="#!" class="modal-close settingsConfirm clickable" style="float: left; margin-left: 15px;">Sure!</a>
                 </div>
             </div>
+
+            <div>
+                <button onclick="execute()" id="everythingButton" class="waves-effect waves-light btn-large clickable" href="#">. . .</button>
+            </div>
+            
+            <div style="z-index: 2;">
+                <a class="modal-trigger" href="#settingsView"><i id="settingsButton" class="material-icons settingsButton clickable">settings</i></a>
+            </div>
+            <div id="settingsView" class="modal" style="border-radius: 10px; border: none;">
+                <div class="modal-content darkify">
+                  <h4>Settings</h4>
+                  <p>volume</p>
+                  <input id="volumeSlider" type="range" min="0" max="100" value="30" step="5">
+                </div>
+                <div class="modal-footer darkify">
+                  <a href="#!" class="modal-close settingsConfirm clickable">Okay</a>
+                </div>
+              </div>
         </div>
-        <p id="insert"></p>
+        <p id="insert"></p><br><br>
+        <div class="clickerStuff" id="clickerStuff">
+            <div class="CPCupgrades upgradeContainer">
+                <div class="row"> <!--trending_up, touch_app, arrow_upward, multiline_chart, pan_tool, location_searching-->
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">touch_app</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">location_searching</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">pan_tool</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">arrow_upward</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">trending_up</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">multiline_chart</i></div>
+                </div>
+                <div class="row">
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 clicks</p></div>
+                </div>
+                <div class="row">
+                    <div class="col s2"><a id="CPCup1" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPCup2" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPCup3" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPCup4" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPCup5" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPCup6" class="upgradeButton">BUY</a></div>
+                </div>
+                <div class="row">
+                    <div class="col s2 upgradeprice"> <p id="CPCup1text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPCup2text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPCup3text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPCup4text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPCup5text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPCup6text">cost: 10 clicks</p></div>
+                </div>
+            </div>
+
+            <div class="CPSupgrades upgradeContainer">
+                <div class="row">
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">person_add</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">people</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">call_made</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">show_chart</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">access_time</i></div>
+                    <div class="col s2 upgradeIcon"><i class="medium material-icons">autorenew</i></div>
+                </div>
+                <div class="row">
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                    <div class="col s2 upgradeText"> <p>+1 CPS</p></div>
+                </div>
+                <div class="row">
+                    <div class="col s2"><a id="CPSup1" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPSup2" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPSup3" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPSup4" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPSup5" class="upgradeButton">BUY</a></div>
+                    <div class="col s2"><a id="CPSup6" class="upgradeButton">BUY</a></div>
+                </div>
+                <div class="row">
+                    <div class="col s2 upgradeprice"> <p id="CPSup1text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPSup2text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPSup3text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPSup4text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPSup5text">cost: 10 clicks</p></div>
+                    <div class="col s2 upgradeprice"> <p id="CPSup6text">cost: 10 clicks</p></div>
+                </div>
+            </div>
+            </div>
+        </div>
     
         <script src="index.js"></script>
         <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

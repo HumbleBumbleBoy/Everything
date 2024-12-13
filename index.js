@@ -20,7 +20,7 @@ volumeSlider.addEventListener("input", updateVolume);
 
 document.addEventListener("click", function(event) {
     // Check if the clicked element has the 'clickable' class
-    if (!event.target.classList.contains("active") && event.target.classList.length > 0) {
+    if (!event.target.classList.contains("active") && event.target.classList.contains("clickable")) {
         clickSfx.pause();
         clickSfx.currentTime = 0;
         clickSfx.play().catch(err => console.error("Audio play failed:", err));
@@ -169,9 +169,10 @@ function clickerTabSwitch() {
     game = "click";
     husk.style.opacity = 1;
     everythingButton.innerText = "Gather clicks!";
+    play();
 };
 
-let clicks = 1;
+let clicks = 0;
 let CPC = 1; // clicks per click
 let CPS = 0; // clicks per second
 
@@ -217,11 +218,13 @@ function resetTabStyle() {
 };
 
 
-function resetActiveAll() { // makes all dropdowns appear not clicked in
+function resetActiveAll() { // makes all dropdowns appear not clicked in   |  after some time this is gonna be the spaghetti nest
     generateDropdown.classList.remove("active"),
     playDropdown.classList.remove("active"),
     PLACEHOLDER1Dropdown.classList.remove("active"),
-    PLACEHOLDER2Dropdown.classList.remove("active")
+    PLACEHOLDER2Dropdown.classList.remove("active"),
+    document.getElementById("clickerStuff").style.display = "none"; // spaghetti starting here, when switching tabs, clicker will disappear
+    updateVolume() ;  
 }
 
 // Define clearContent() outside the play function for global access
@@ -247,7 +250,8 @@ function play() {
     }
 
     if (game == "click") {
-        husk.innerText = `Clicks: ${clicks} (more features will come)`;
+        document.getElementById("clickerStuff").style.display = "flex";
+        husk.innerText = `Clicks: ${clicks}`;
         clicks += CPC;
     }
 }
